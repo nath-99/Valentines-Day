@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day Surprise</title>
+    <link href="https://fonts.cdnfonts.com/css/romantic" rel="stylesheet">
+    <style>
+            @import url('https://fonts.cdnfonts.com/css/romantic');
+    </style>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: pink;
+            margin: 0;
+        }
+        .heart-container, .play-button {
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
+        }
+        .heart-container {
+            position: relative;
+            text-align: center;
+        }
+        .heart-img {
+            width: 300px;
+            height: auto;
+            display: block;
+        }
+        .heart-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+	    font-family: 'Romantic', sans-serif;
+            font-size: 25px;
+            font-weight: bold;
+            text-align: center;
+            width: 70%;
+        }
+        .play-button {
+            position: relative;
+            margin-top: 70px;
+            display: inline-block;
+            transform: rotate(-90deg);
+            transition: transform 2.0s ease-in-out;
+        }
+        .play-button:hover {
+            transform: rotate(-90deg) scale(1.2);
+        }
+        .play-img {
+            width: 150px;
+            height: auto;
+            display: block;
+        }
+        .play-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(90deg);
+	    font-family: 'Romantic', sans-serif;
+            color: white;
+            font-size: 13px;
+            font-weight: bold;
+            text-align: center;
+            width: 70%;
+        }
+        .video-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+        }
+        video {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="heart-container" id="redHeart">
+        <img src="red-heart.png" alt="Red Heart" class="heart-img">
+        <div class="heart-text">Happy Valentine's Day Dustu Sonai</div>
+    </div>
+    <div class="play-button" id="pinkHeart" onclick="playVideo()">
+        <img src="pink-heart.png" alt="Pink Heart" class="play-img">
+        <div class="play-text">Let's dive inside heart, Click 😘</div>
+    </div>
+    <div class="video-container" id="videoContainer">
+        <video id="valentineVideo" controls autoplay>
+            <source src="your-video-url.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            setTimeout(() => {
+                document.getElementById('redHeart').style.opacity = '1';
+                setTimeout(() => {
+                    document.getElementById('pinkHeart').style.opacity = '1';
+                }, 2000);
+            }, 1000);
+        });
+
+        function playVideo() {
+            document.getElementById('videoContainer').style.display = 'block';
+            document.getElementById('valentineVideo').play();
+        }
+    </script>
+</body>
+</html>
